@@ -1,46 +1,33 @@
 {
   "name": "vulpem.com",
-  "version": "2.0.0",
-  "description": "Vulpem Ventures Main Website",
+  "version": "1.0.0",
+  "devDependencies": {
+    "jquery": "^3.4.1",
+    "autoprefixer": "^9.5.0",
+    "cpx": "^1.5.0",
+    "parcel-bundler": "^1.12.2",
+    "postcss-cli": "^6.1.2",
+    "push-dir": "^0.4.1",
+    "sass": "^1.17.3",
+    "stylelint": "9.6.0",
+    "bulma": "^0.8.0",
+    "@fortawesome/fontawesome-free": "^5.2.0"
+  },
   "scripts": {
-    "start": "node_modules/.bin/gulp default",
-    "serve": "node_modules/.bin/gulp serve",
-    "bundle": "node_modules/.bin/gulp bundle",
-    "deploy": "sh scripts/deploy-gh-pages.sh",
-    "styleguid": "node_modules/.bin/gulp styleguid"
+    "postcss": "npx postcss -u autoprefixer -r src/css/*",
+    "scss": "npx node-sass --output-style compressed -o src/css src/scss",
+    "serve": "npx parcel --no-cache --port 8080 src/index.html",
+    "build": "npm run scss && npm run postcss && npx parcel build --no-cache src/index.html",
+    "deploy": "npx cpx CNAME dist && npx push-dir --dir=dist --branch=gh-pages"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vulpemventures/vulpemcom.git"
+    "url": "git+https://github.com/vulpemventures/vulpemcom.git"
   },
-  "author": "Vulpem Ventures",
+  "author": "Vulpem Ventures Team",
   "license": "MIT",
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.2.0",
-    "babel-preset-env": "^1.7.0",
-    "browser-sync": "^2.24.7",
-    "buffer": "^3.6.0",
-    "bulma": "^0.7.1",
-    "bundle": "^2.0.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-babel": "^6.1.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-filesize": "0.0.6",
-    "gulp-if": "^2.0.2",
-    "gulp-imagemin": "^4.1.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^4.0.1",
-    "gulp-stylelint": "^7.0.0",
-    "gulp-uglify": "3.0.1",
-    "gulp-useref": "^3.1.5",
-    "jquery": "^3.3.1",
-    "merge": "^1.2.0",
-    "push-dir": "^0.4.1",
-    "styledown": "2.0.0-pre1",
-    "stylelint": "9.6.0"
+  "bugs": {
+    "url": "https://github.com/vulpemventures/vulpemcom/issues"
   },
-  "dependencies": {}
+  "homepage": "https://github.com/vulpemventures/vulpemcom#readme"
 }

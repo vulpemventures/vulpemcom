@@ -29,13 +29,7 @@ The script will bundle and commit the subtree located in `/dist` onto Github Pag
 
 Install dependencies being in the cloned folder `vulpemcom`
 ```
-npm i
-```
-
-### Watch & Reload
-
-```
-npm start
+yarn
 ```
 
 ### Serve locally
@@ -47,13 +41,13 @@ npm run serve
 ### Bundle for production
 
 ```
-npm run bundle
+yarn build
 ```
 
 ### Generate styleguide
 
 ```
-npm run styleguid
+yarn styleguid
 ```
 
 ### Build SCSS into CSS
@@ -68,7 +62,7 @@ Import each new file created in the **src/scss/style.scss** file
 
 Run the build script in the root folder
 ```
-node_modules/.bin/gulp scss-to-css
+yarn scss && yarn postcss
 ```
 
 The compiled css are in the `./src/css` folder

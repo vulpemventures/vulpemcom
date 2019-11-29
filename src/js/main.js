@@ -1,3 +1,6 @@
+var jquery = require("jquery");
+window.$ = window.jQuery = jquery; // notice the definition of global variables here
+
 $(function () {
   // const slider = $(".main-slider");
   // slider.slick({
